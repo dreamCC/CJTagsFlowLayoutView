@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "CJTagsFlowLayoutView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Similar to the view can realize hot labels layout."
   s.description  = "Project, we can be done through CJTagsFlowLayoutView, hot labels layout."
   s.homepage     = "https://github.com/dreamCC/CJTagsFlowLayoutView"
@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.author       = { "dreamCC" => "568644031@qq.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/dreamCC/CJTagsFlowLayoutView.git", :tag => s.version }
-  s.source_files = "CJTagsFlowLayoutView", "CJTagsFlowLayoutView/*.{h,m}"
+  s.source_files = "CJTagsFlowLayoutView"
   s.requires_arc = true
 end
