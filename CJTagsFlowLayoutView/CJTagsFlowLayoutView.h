@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, CJTagsFlowLayoutType) {
 
 @interface CJTagsFlowLayoutView : UIView
 
-/// 每个subView的高度
+/// 每个subView的高度,必须设置。
 @property(nonatomic, assign) CGFloat cj_tagHeight;
 
 /// 每个subView的宽度， 只有当tagsFlowLayoutType 为CJTagsFlowLayoutTypeOriginal时候才有用
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, CJTagsFlowLayoutType) {
 
 /// 布局方式，默认CJTagsFlowLayoutTypeAuto。
 // 注意：如果设置CJTagsFlowLayoutTypeOriginal，那么设置cj_margin、cj_padding属性就会失效。会根据当前tagView的宽度和CJTagsFlowLayoutView的宽度来计算出新的cj_margin。
-//      如果设置CJTagsFlowLayoutTypeAuto，那么cj_tagWidth属性就会失效。会根据tagView内部内容大小来动态计算宽度。
+// 如果设置CJTagsFlowLayoutTypeAuto，那么cj_tagWidth属性就会失效。会根据tagView内部内容大小来动态计算宽度。
 @property(nonatomic, assign) CJTagsFlowLayoutType tagsFlowLayoutType;
 
 @end

@@ -8,8 +8,6 @@
 
 #import "CJTagsFlowLayoutView.h"
 
-#define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
-
 static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
     if (!string) return 0.f;
     
@@ -66,6 +64,8 @@ static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
     return [self cj_tagsViewLayout];
 }
 
+
+
 #pragma mark --- private method
 -(CGSize)cj_tagsViewLayout {
     
@@ -78,7 +78,7 @@ static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
         CGFloat tagView_x = 0;
         CGFloat tagView_y = 0;
         CGFloat totalLength = i == 0?((CGRectGetMaxX(previousFrame) + subTitleWidths[i].floatValue)):(CGRectGetMaxX(previousFrame) + _cj_space_horizontal + subTitleWidths[i].floatValue);
-        if (totalLength >= kScreenWidth) {
+        if (totalLength >= CGRectGetWidth(self.frame)) {
             
             tagView_x = _cj_margin;
             tagView_y = CGRectGetMaxY(previousFrame) + _cj_space_vertical;
@@ -92,6 +92,9 @@ static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
         
         CGFloat tagView_w = [subTitleWidths[i] floatValue];
         CGFloat tagView_h = _cj_tagHeight;
+        if (tagView_w > CGRectGetWidth(self.frame) - 2*_cj_margin) {
+            tagView_w = CGRectGetWidth(self.frame) - 2*_cj_margin;
+        }
         tagView.frame     = CGRectMake(tagView_x, tagView_y, tagView_w, tagView_h);
         previousFrame     = tagView.frame;
     }
@@ -125,7 +128,6 @@ static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
         }else {
             UIButton *subBtn   = (UIButton *)self.subviews[i];
             NSString *title    = subBtn.titleLabel.text;
-            
             CGFloat titleWidth = 0.f;
             titleWidth = CJStringWidth(title, subBtn.titleLabel.font, _cj_tagHeight);
             [subtitleWidths addObject:[NSNumber numberWithFloat:(titleWidth + _cj_padding*2)]];

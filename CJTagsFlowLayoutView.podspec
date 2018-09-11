@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "CJTagsFlowLayoutView"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Similar to the view can realize hot labels layout."
   s.description  = "Project, we can be done through CJTagsFlowLayoutView, hot labels layout."
   s.homepage     = "https://github.com/dreamCC/CJTagsFlowLayoutView"
